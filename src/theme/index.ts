@@ -9,8 +9,9 @@ const customTheme = extendTheme({
     lightText: palette.WHITE,
     darkText: palette.BLACK,
 
-    primary: palette.EMERALD,
-    secondary: palette.ORANGE,
+    primary: palette.PRIMARY,
+    secondary: palette.SECONDARY,
+    border: palette.BORDER,
     tertiary: palette.MIDNIGHT_BLUE,
 
     pageBackground: palette.MIDNIGHT_BLUE,

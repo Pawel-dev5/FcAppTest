@@ -27,6 +27,12 @@
     "UserDetails": "Szczegóły użytkownika"
   },
   "Login": {
-    "welcome": "Witaj w Football Challenge"
+    "welcome": "Witaj w Football Challenge",
+    "login": "Zaloguj się",
+    "orRegister": "Lub zarejestruj się",
+    "useGoogle": "Użyj konta Google",
+    "useFacebook": "Użyj konta Facebook",
+    "useApple": "Użyj konta Apple",
+    "registerByEmail": "Zarejestruj się E-mailem"
   }
 }

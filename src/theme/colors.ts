@@ -1,6 +1,8 @@
 const palette = {
+  PRIMARY: '#241F44',
+  SECONDARY: '#7D6DE5',
+  BORDER: '#483E89',
   TORQUISE: '#1abc9c',
-  EMERALD: '#2ecc71',
   GREEN_SEA: '#16a085',
   NEPHRITIS: '#27ae60',
   SUN_FLOWER: '#f1c40f',

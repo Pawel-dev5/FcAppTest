@@ -26,6 +26,12 @@
     "UserDetails": "Dettaglio utente"
   },
   "Login": {
-    "welcome": "Benvenuti nella sfida del calcio"
+    "welcome": "Benvenuti nella sfida del calcio",
+    "login": "Login",
+    "orRegister": "Oppure registrati",
+    "useGoogle": "Usa un account Google",
+    "useFacebook": "Usa un account Facebook",
+    "useApple": "Usa un account Apple",
+    "registerByEmail": "Registrati tramite e-mail"
   }
 }

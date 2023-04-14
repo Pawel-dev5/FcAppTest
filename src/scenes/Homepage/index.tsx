@@ -21,6 +21,10 @@ const Home: FC = () => {
   const { mutate: deleteUser } = useDeleteUser();
   const currentLocale = i18n.language;
 
+  const switchLocaleToPl = useCallback(() => {
+    i18n.changeLanguage('pl');
+  }, [i18n]);
+
   const switchLocaleToEn = useCallback(() => {
     i18n.changeLanguage('en');
   }, [i18n]);
@@ -92,6 +96,19 @@ const Home: FC = () => {
             }}>
             <Text color="WHITE" fontFamily="body" fontStyle="normal">
               {t('common:english')}
+            </Text>
+          </Button>
+
+          <Button
+            backgroundColor="CARROT"
+            onPress={switchLocaleToPl}
+            margin={2}
+            isPressed={currentLocale === 'pl'}
+            _pressed={{
+              backgroundColor: currentLocale === 'pl' ? 'primary' : 'tertiary',
+            }}>
+            <Text color="WHITE" fontFamily="body" fontStyle="normal">
+              {t('common:polish')}
             </Text>
           </Button>
         </Flex>

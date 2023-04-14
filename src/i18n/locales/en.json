@@ -26,6 +26,12 @@
     "UserDetails": "User Details"
   },
   "Login": {
-    "welcome": "Welcome in Football Challenge"
+    "welcome": "Welcome in Football Challenge",
+    "login": "Log in",
+    "orRegister": "Or sign up",
+    "useGoogle": "Use a Google account",
+    "useFacebook": "Use a Facebook account",
+    "useApple": "Use a Apple account",
+    "registerByEmail": "Sign up by E-mail"
   }
 }
