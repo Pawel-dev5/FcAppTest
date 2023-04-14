@@ -1,12 +1,14 @@
 import Splashscreen from '@components/Splashscreen';
+import { ContextProvider, GlobalStateContextData } from '@hooks/globalState';
 import '@i18n';
 import { NavigationContainer } from '@react-navigation/native';
 import { RootStackScreen } from '@routes';
 import { isMountedRef, navigationRef } from '@routes/navigationUtils';
+import { LoginStackScreen } from '@routes/stacks/LoginStack';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import customTheme from '@theme';
 import { NativeBaseProvider, StatusBar } from 'native-base';
-import React, { FC, Suspense, useEffect } from 'react';
+import React, { FC, Suspense, useEffect, useContext } from 'react';
 import 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { enableScreens } from 'react-native-screens';
@@ -27,7 +29,9 @@ const queryClient = new QueryClient({
   },
 });
 
-const App: FC = () => {
+const AppWrapper: FC = () => {
+  const { isAuth } = useContext(GlobalStateContextData);
+
   useEffect(() => {
     isMountedRef.current = true;
 
@@ -44,9 +48,9 @@ const App: FC = () => {
         <NavigationContainer ref={navigationRef}>
           <NativeBaseProvider theme={customTheme}>
             <QueryClientProvider client={queryClient}>
-              <StatusBar barStyle="dark-content" />
+              <StatusBar translucent backgroundColor="transparent" />
 
-              <RootStackScreen />
+              {isAuth ? <RootStackScreen /> : <LoginStackScreen />}
             </QueryClientProvider>
           </NativeBaseProvider>
         </NavigationContainer>
@@ -54,5 +58,11 @@ const App: FC = () => {
     </Suspense>
   );
 };
+
+const App = () => (
+  <ContextProvider>
+    <AppWrapper />
+  </ContextProvider>
+);
 
 export default App;

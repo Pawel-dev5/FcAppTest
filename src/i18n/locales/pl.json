@@ -1,0 +1,32 @@
+{
+  "common": {
+    "italian": "Italian",
+    "english": "English",
+    "polish": "Polish"
+  },
+  "Header": {
+    "back": "Cofnij"
+  },
+  "Homepage": {
+    "welcome": "Thank you for using the React Native Starter App\n😍 😘 🙏🏻",
+    "releasedWithLove": "Created and released with ❤️ for you",
+    "gotoUsersList": "Idź do Lista użytkowników",
+    "openModal": "Otwórz modal",
+    "createNewUser": " Utwórz nowego użytkownika",
+    "ModifyUser": "Modyfikuj użytkownika",
+    "DeleteUser": "Usuń użytkownika"
+  },
+  "UsersList": {
+    "UsersList": "Lista użytkowników"
+  },
+  "ModalPage": {
+    "PageName": "Modal",
+    "thisIsAModal": "To jest modal!"
+  },
+  "UserDetails": {
+    "UserDetails": "Szczegóły użytkownika"
+  },
+  "Login": {
+    "welcome": "Witaj w Football Challenge"
+  }
+}

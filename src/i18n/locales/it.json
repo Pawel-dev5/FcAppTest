@@ -24,5 +24,8 @@
   },
   "UserDetails": {
     "UserDetails": "Dettaglio utente"
+  },
+  "Login": {
+    "welcome": "Benvenuti nella sfida del calcio"
   }
 }

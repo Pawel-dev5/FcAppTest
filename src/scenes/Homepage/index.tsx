@@ -1,15 +1,18 @@
 import { useCreateUser, useDeleteUser, useModifyUser } from '@api/hooks/useUser';
 import EnvInfoView from '@components/AppVersion';
 import CSafeAreaView from '@components/CSafeAreaView';
+import { GlobalStateContextData } from '@hooks/globalState';
 import { useNavigation } from '@react-navigation/native';
 import { GenericNavigationProps } from '@routes/types';
 import { Button, Flex, Icon, ScrollView, Text } from 'native-base';
-import React, { useCallback, FC, memo, useLayoutEffect } from 'react';
+import React, { useCallback, FC, memo, useLayoutEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 const Home: FC = () => {
+  const { setIsAuth } = useContext(GlobalStateContextData);
+
   const [t, i18n] = useTranslation();
   const navigation = useNavigation<GenericNavigationProps>();
   const { setOptions } = useNavigation<GenericNavigationProps>();
@@ -144,6 +147,18 @@ const Home: FC = () => {
           onPress={() => navigation.navigate('MyModal')}>
           <Text color="WHITE" fontFamily="body" fontStyle="normal">
             {t('Homepage:openModal')}
+          </Text>
+        </Button>
+
+        <Button
+          alignSelf="center"
+          backgroundColor="TRANSPARENT"
+          borderColor="black"
+          borderWidth={1}
+          marginTop={15}
+          onPress={() => setIsAuth(false)}>
+          <Text color="WHITE" fontFamily="body" fontStyle="normal">
+            Wyloguj
           </Text>
         </Button>
 

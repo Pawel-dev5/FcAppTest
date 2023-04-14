@@ -20,35 +20,35 @@ const typography = {
     '5xl': '4em',
   },
   fontConfig: {
-    Lato: {
+    Aeonik: {
       100: {
-        normal: 'Lato-Thin',
-        italic: 'Lato-ThinItalic',
+        normal: 'Aeonik-Thin',
+        italic: 'Aeonik-ThinItalic',
       },
       300: {
-        normal: 'Lato-Light',
-        italic: 'Lato-LightItalic',
+        normal: 'Aeonik-Light',
+        italic: 'Aeonik-LightItalic',
       },
       400: {
-        normal: 'Lato-Regular',
-        italic: 'Lato-Italic',
+        normal: 'Aeonik-Regular',
+        italic: 'Aeonik-Italic',
       },
       700: {
-        normal: 'Lato-Bold',
-        italic: 'Lato-BoldItalic',
+        normal: 'Aeonik-Bold',
+        italic: 'Aeonik-BoldItalic',
       },
       900: {
-        normal: 'Lato-Black',
-        italic: 'Lato-BlackItalic',
+        normal: 'Aeonik-Black',
+        italic: 'Aeonik-BlackItalic',
       },
     },
   },
 
   // Make sure values below matches any of the keys in `fontConfig`
   fonts: {
-    heading: 'Lato',
-    body: 'Lato',
-    mono: 'Lato',
+    heading: 'Aeonik',
+    body: 'Aeonik',
+    mono: 'Aeonik',
   },
 
   fontSizes: {

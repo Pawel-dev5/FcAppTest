@@ -24,5 +24,8 @@
   },
   "UserDetails": {
     "UserDetails": "User Details"
+  },
+  "Login": {
+    "welcome": "Welcome in Football Challenge"
   }
 }
