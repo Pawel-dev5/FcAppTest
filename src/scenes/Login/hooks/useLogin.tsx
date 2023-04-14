@@ -3,7 +3,8 @@ import React, { createContext, useState } from 'react';
 
 export const useLogin = () => {
   const [currentStep, setCurrentStep] = useState(0);
-  return { currentStep, setCurrentStep };
+  const [startAnimation, setStartAnimation] = useState(false);
+  return { currentStep, setCurrentStep, startAnimation, setStartAnimation };
 };
 
 export const LoginContextData = createContext({} as ReturnType<typeof useLogin>);

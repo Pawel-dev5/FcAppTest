@@ -5,7 +5,7 @@ import { View } from 'native-base';
 import React, { useContext } from 'react';
 
 const LoginWrapper = () => {
-  const { currentStep } = useContext(LoginContextData);
+  const { currentStep, startAnimation } = useContext(LoginContextData);
 
   const handleComponentsBySteps = () => {
     switch (currentStep) {
@@ -17,7 +17,7 @@ const LoginWrapper = () => {
   };
 
   return (
-    <LayoutWrapper>
+    <LayoutWrapper startAnimation={startAnimation}>
       <View>{handleComponentsBySteps()}</View>
     </LayoutWrapper>
   );

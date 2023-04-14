@@ -8,11 +8,11 @@ import { useTranslation } from 'react-i18next';
 export const WelcomeScreen = () => {
   const [t] = useTranslation();
   const { setIsAuth } = useContext(GlobalStateContextData);
-  const { currentStep, setCurrentStep } = useContext(LoginContextData);
+  const { currentStep, setCurrentStep, setStartAnimation, startAnimation } = useContext(LoginContextData);
 
   return (
     <>
-      <Button style={globalButtonsStyles.outlineButton}>
+      <Button style={globalButtonsStyles.outlineButton} onPress={() => setStartAnimation(!startAnimation)}>
         <Text style={globalButtonsStyles.outlineButtonText}>Masz już konto?</Text>
       </Button>
 
