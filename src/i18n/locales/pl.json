@@ -35,6 +35,13 @@
     "useFacebook": "Użyj konta Facebook",
     "useApple": "Użyj konta Apple",
     "registerByEmail": "Zarejestruj się E-mailem",
-    "createAccount": "Utwórz konto"
+    "createAccount": "Utwórz konto",
+    "haveAccount": "Masz juz konto?",
+    "isRequired": "jest wymagane.",
+    "firstAndLastName": "Imię i nazwisko",
+    "email": "E-mail",
+    "phone": "Telefon",
+    "password": "Hasło",
+    "thisField": "To pole"
   }
 }

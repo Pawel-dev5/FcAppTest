@@ -34,6 +34,13 @@
     "useFacebook": "Usa un account Facebook",
     "useApple": "Usa un account Apple",
     "registerByEmail": "Registrati tramite e-mail",
-    "createAccount": "Creare un account"
+    "createAccount": "Creare un account",
+    "haveAccount": "Hai già un account?",
+    "isRequired": "è obbligatorio.",
+    "firstAndLastName": "Nome e cognome",
+    "email": "E-mail",
+    "phone": "Telefono",
+    "password": "Parola d'ordine",
+    "thisField": "This field"
   }
 }

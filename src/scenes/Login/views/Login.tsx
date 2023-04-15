@@ -7,18 +7,9 @@ import React, { useContext } from 'react';
 const LoginWrapper = () => {
   const { currentStep, startAnimation, backHandler } = useContext(LoginContextData);
 
-  const handleComponentsBySteps = () => {
-    switch (currentStep) {
-      case 0:
-        return <WelcomeScreen />;
-      default:
-        return <Steps />;
-    }
-  };
-
   return (
     <LayoutWrapper startAnimation={startAnimation} backHandler={backHandler}>
-      <View>{handleComponentsBySteps()}</View>
+      <View>{currentStep === 0 ? <WelcomeScreen /> : <Steps />}</View>
     </LayoutWrapper>
   );
 };

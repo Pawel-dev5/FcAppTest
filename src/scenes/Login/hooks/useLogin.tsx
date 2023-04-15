@@ -35,7 +35,7 @@ export const useLogin = () => {
   const stepsLength = 4;
 
   const backHandler = () => {
-    setCurrentStep(currentStep - 1);
+    if (currentStep !== 0) setCurrentStep(currentStep - 1);
     if (currentStep === 1) setStartAnimation(false);
   };
 

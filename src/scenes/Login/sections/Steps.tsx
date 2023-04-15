@@ -27,7 +27,7 @@ export const Steps = () => {
       <View>
         {currentStep === 1 && (
           <Input
-            placeholder="Imię i nazwisko"
+            label={t('Login:firstAndLastName')}
             errors={errors}
             control={control}
             name="firstName"
@@ -37,7 +37,7 @@ export const Steps = () => {
         )}
         {currentStep === 2 && (
           <Input
-            placeholder="Telefon"
+            label={t('Login:phone')}
             errors={errors}
             control={control}
             name="phone"
@@ -47,7 +47,7 @@ export const Steps = () => {
         )}
         {currentStep === 3 && (
           <Input
-            placeholder="E-mail"
+            label={t('Login:email')}
             errors={errors}
             control={control}
             name="email"
@@ -56,7 +56,7 @@ export const Steps = () => {
           />
         )}
         {currentStep === 4 && (
-          <Input placeholder="Hasło" errors={errors} control={control} name="password" type="default" />
+          <Input label={t('Login:password')} errors={errors} control={control} name="password" type="default" />
         )}
       </View>
 

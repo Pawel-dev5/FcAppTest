@@ -12,6 +12,7 @@ const customTheme = extendTheme({
     primary: palette.PRIMARY,
     secondary: palette.SECONDARY,
     border: palette.BORDER,
+    grey: palette.GREY,
     tertiary: palette.MIDNIGHT_BLUE,
 
     pageBackground: palette.MIDNIGHT_BLUE,
@@ -20,6 +21,10 @@ const customTheme = extendTheme({
     ...palette,
   },
 
+  radius: {
+    1: 12,
+    2: 16,
+  },
   ...typography,
 
   config: {

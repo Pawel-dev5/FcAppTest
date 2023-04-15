@@ -2,6 +2,7 @@ const palette = {
   PRIMARY: '#241F44',
   SECONDARY: '#7D6DE5',
   BORDER: '#483E89',
+  GREY: '#EDEDED',
   TORQUISE: '#1abc9c',
   GREEN_SEA: '#16a085',
   NEPHRITIS: '#27ae60',
