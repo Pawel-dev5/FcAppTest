@@ -55,6 +55,7 @@ export const Input = ({ label, errors, control, name, type, autoComplete }: Inpu
                 secureTextEntry={name === 'password'}
                 textContentType={name === 'email' ? 'emailAddress' : 'none'}
                 style={InputStyles.input}
+                autoFocus
               />
             </View>
           </View>

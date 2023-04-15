@@ -42,7 +42,7 @@
     "firstAndLastName": "Imię i nazwisko",
     "email": "E-mail",
     "phone": "Telefon",
-    "password": "Hasło",
+    "password": "Hasło (min 6 znaków, w tym cyfra)",
     "thisField": "To pole"
   }
 }

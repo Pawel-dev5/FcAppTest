@@ -1,5 +1,7 @@
 import { ContextProviderProps } from '@config/models';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { createContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
@@ -39,7 +41,11 @@ export const useLogin = () => {
     if (currentStep === 1) setStartAnimation(false);
   };
 
-  const onSubmit = (data: FormData) => console.log(data);
+  const { mutate, isLoading, isError, error } = useMutation(formData =>
+    axios.post('https://api.dev.footballchallengeapp.com/swagger/auth/registration', formData),
+  );
+
+  const onSubmit = (data: FormData) => mutate(data);
 
   return {
     currentStep,
@@ -52,6 +58,9 @@ export const useLogin = () => {
     errors,
     handleSubmit,
     onSubmit,
+    isLoading,
+    isBackendError: isError,
+    backendError: error,
   };
 };
 

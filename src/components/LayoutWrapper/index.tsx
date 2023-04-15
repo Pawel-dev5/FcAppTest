@@ -44,7 +44,7 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
     () =>
       heightIndex.interpolate({
         inputRange: [0, 1],
-        outputRange: ['53%', '82%'],
+        outputRange: ['53%', '85%'],
       }),
     [heightIndex],
   );
@@ -81,7 +81,7 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
   return (
     <View flex={1} position="relative">
       <ImageBackground source={require('@assets/images/Login_Background.jpg')} style={styles.backgroundImage}>
-        <View alignItems="center" paddingTop={50}>
+        <View alignItems="center" paddingTop={35}>
           <View alignItems="center" flexDirection="row">
             <Animated.View style={{ opacity: arrowOpacity }}>
               <Button

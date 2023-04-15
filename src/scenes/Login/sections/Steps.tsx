@@ -3,13 +3,23 @@ import { LoginContextData } from '@scenes/Login/hooks/useLogin';
 import { Input } from '@scenes/Login/items';
 import globalButtonsStyles from '@theme/buttons';
 import { Button, Text, View } from 'native-base';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const Steps = () => {
   const [t] = useTranslation();
-  const { currentStep, setCurrentStep, stepsLength, control, handleSubmit, errors, onSubmit } =
-    useContext(LoginContextData);
+  const {
+    currentStep,
+    setCurrentStep,
+    stepsLength,
+    control,
+    handleSubmit,
+    errors,
+    onSubmit,
+    isBackendError,
+    isLoading,
+    backendError,
+  } = useContext(LoginContextData);
 
   useEffect(() => {
     if (errors?.password) setCurrentStep(4);
@@ -19,8 +29,8 @@ export const Steps = () => {
   }, [errors, setCurrentStep]);
 
   return (
-    <View alignItems="center" paddingTop={12}>
-      <Text color="white" fontWeight="bold" fontSize="lg" marginBottom={8}>
+    <View alignItems="center" paddingTop={8}>
+      <Text color="white" fontWeight="bold" fontSize="lg" marginBottom={10}>
         {t('Login:createAccount')}
       </Text>
 
@@ -74,9 +84,16 @@ export const Steps = () => {
 
       <Button
         style={globalButtonsStyles.filledButton}
-        onPress={currentStep < stepsLength ? () => setCurrentStep(currentStep + 1) : handleSubmit(onSubmit)}>
-        <Text style={globalButtonsStyles.filledButtonText}>{t('common:next')}</Text>
+        onPress={currentStep < stepsLength ? () => setCurrentStep(currentStep + 1) : handleSubmit(onSubmit)}
+        disabled={isLoading}>
+        <Text style={globalButtonsStyles.filledButtonText}>{isLoading ? 'Loading...' : t('common:next')}</Text>
       </Button>
+
+      {isBackendError && (
+        <Text color="ALIZARIN" paddingTop={2}>
+          {backendError?.code}: {backendError?.message}.
+        </Text>
+      )}
     </View>
   );
 };
