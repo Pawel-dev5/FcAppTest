@@ -2,7 +2,8 @@
   "common": {
     "italian": "Italian",
     "english": "English",
-    "polish": "Polish"
+    "polish": "Polish",
+    "next": "Dalej"
   },
   "Header": {
     "back": "Cofnij"
@@ -33,6 +34,7 @@
     "useGoogle": "Użyj konta Google",
     "useFacebook": "Użyj konta Facebook",
     "useApple": "Użyj konta Apple",
-    "registerByEmail": "Zarejestruj się E-mailem"
+    "registerByEmail": "Zarejestruj się E-mailem",
+    "createAccount": "Utwórz konto"
   }
 }

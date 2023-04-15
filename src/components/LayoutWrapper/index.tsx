@@ -3,20 +3,19 @@ import { Text, View, Image, Icon, Button } from 'native-base';
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, ImageBackground, Animated, Easing, Keyboard, TextInput } from 'react-native';
+import { StyleSheet, ImageBackground, Animated, Easing, Keyboard } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
-export const LayoutWrapper = ({
-  children,
-  startAnimation,
-}: {
+interface LayoutWrapperInterface {
   children?: ReactNode | ReactNode[];
   startAnimation?: boolean;
-}) => {
+  backHandler?: () => void;
+}
+
+export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutWrapperInterface) => {
   const [t] = useTranslation();
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
-  const [text, setText] = useState('');
 
   useEffect(() => {
     Keyboard.addListener('keyboardDidShow', event => {
@@ -45,7 +44,7 @@ export const LayoutWrapper = ({
     () =>
       heightIndex.interpolate({
         inputRange: [0, 1],
-        outputRange: ['50%', '82%'],
+        outputRange: ['53%', '82%'],
       }),
     [heightIndex],
   );
@@ -85,12 +84,15 @@ export const LayoutWrapper = ({
         <View alignItems="center" paddingTop={50}>
           <View alignItems="center" flexDirection="row">
             <Animated.View style={{ opacity: arrowOpacity }}>
-              <Button onPress={() => console.log('elo')}>
+              <Button
+                onPress={() => {
+                  if (backHandler) backHandler();
+                }}>
                 <Icon as={FontAwesome5} name="arrow-left" color="WHITE" size="18px" />
               </Button>
             </Animated.View>
 
-            <Animated.View style={{ transform: [{ scale }], marginLeft: -18 }}>
+            <Animated.View style={{ transform: [{ scale }], marginLeft: !startAnimation ? -38 : -18 }}>
               <Image
                 alt="FC.APP_LOGO"
                 source={require('@assets/images/FC.APP_LOGO.png')}
@@ -107,13 +109,10 @@ export const LayoutWrapper = ({
             </Text>
           </Animated.View>
         </View>
-
-        <View>
-          <TextInput placeholder="Wpisz tekst" value={text} onChangeText={setText} />
-        </View>
       </ImageBackground>
 
       <Animated.ScrollView
+        keyboardShouldPersistTaps="handled"
         style={{
           ...styles.children,
           // height: startAnimation ? '82%' : '50%',

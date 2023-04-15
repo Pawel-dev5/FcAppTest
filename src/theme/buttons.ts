@@ -7,9 +7,10 @@ const sharedText = {
 };
 const sharedContainer = {
   borderRadius: 12,
-  marginTop: 16,
+  marginTop: 9,
   width: '100%',
   minWidth: '100%',
+  height: 48,
 };
 
 const globalButtonsStyles = StyleSheet.create({

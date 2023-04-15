@@ -69,7 +69,12 @@ export const WelcomeScreen = () => {
         </View>
       </Button>
 
-      <Button style={globalButtonsStyles.simpleButton} onPress={() => setCurrentStep(currentStep + 1)}>
+      <Button
+        style={globalButtonsStyles.simpleButton}
+        onPress={() => {
+          setCurrentStep(currentStep + 1);
+          setStartAnimation(true);
+        }}>
         <View position="relative" minWidth="100%" justifyContent="center" alignItems="center">
           <Image
             alt="Icon Mail"

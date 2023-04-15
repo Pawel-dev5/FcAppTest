@@ -1,7 +1,8 @@
 {
   "common": {
     "italian": "Italiano",
-    "english": "Inglese"
+    "english": "Inglese",
+    "next": "Prossimo"
   },
   "Header": {
     "back": "Indietro"
@@ -32,6 +33,7 @@
     "useGoogle": "Usa un account Google",
     "useFacebook": "Usa un account Facebook",
     "useApple": "Usa un account Apple",
-    "registerByEmail": "Registrati tramite e-mail"
+    "registerByEmail": "Registrati tramite e-mail",
+    "createAccount": "Creare un account"
   }
 }

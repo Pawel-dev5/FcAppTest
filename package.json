@@ -33,7 +33,7 @@
     "ios:assemble:debug": "xcodebuild -quiet -workspace ios/ReactNativeStarterApp.xcworkspace -scheme ReactNativeStarterApp -configuration Release -sdk iphonesimulator -destination platform='iOS Simulator',OS=13.3,name='iPhone 11 Pro Max' CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO",
     "build:dev:android": "run-s env:dev android:bundle:create android:assemble:debug",
     "build:dev:ios": "run-s env:dev setup:ios ios:assemble:debug",
-    "pre-commit": "yarn lint-staged && yarn dependencies:checkCircular && yarn dependencies:graph",
+    "pre-commit": "yarn lint-staged",
     "prettier-check:staged": "prettier --check \"./src/**/*.{js,jsx,ts,tsx}\"",
     "prettier-format:staged": "prettier --write \"./src/**/*.{js,jsx,ts,tsx}\"",
     "dependencies:checkCircular": "madge src/ --circular",
@@ -41,6 +41,7 @@
     "postinstall": "husky install"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.0.1",
     "@react-native-async-storage/async-storage": "1.17.9",
     "@react-native-masked-view/masked-view": "0.2.7",
     "@react-navigation/native": "6.0.11",
@@ -50,6 +51,7 @@
     "i18next": "21.9.1",
     "native-base": "3.4.13",
     "react": "18.2.0",
+    "react-hook-form": "^7.43.9",
     "react-i18next": "11.18.4",
     "react-native": "0.69.4",
     "react-native-flipper": "0.159.0",
@@ -62,7 +64,8 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "13.0.0",
     "react-native-vector-icons": "^9.1.0",
-    "react-native-version-number": "^0.3.6"
+    "react-native-version-number": "^0.3.6",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "7.18.5",

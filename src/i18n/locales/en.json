@@ -1,7 +1,8 @@
 {
   "common": {
     "italian": "Italian",
-    "english": "English"
+    "english": "English",
+    "next": "Next"
   },
   "Header": {
     "back": "Back"
@@ -32,6 +33,7 @@
     "useGoogle": "Use a Google account",
     "useFacebook": "Use a Facebook account",
     "useApple": "Use a Apple account",
-    "registerByEmail": "Sign up by E-mail"
+    "registerByEmail": "Sign up by E-mail",
+    "createAccount": "Create account"
   }
 }
