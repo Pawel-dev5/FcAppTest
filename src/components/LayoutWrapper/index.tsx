@@ -92,7 +92,7 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
               </Button>
             </Animated.View>
 
-            <Animated.View style={{ transform: [{ scale }], marginLeft: !startAnimation ? -38 : -18 }}>
+            <Animated.View style={{ transform: [{ scale }], marginLeft: -38 }}>
               <Image
                 alt="FC.APP_LOGO"
                 source={require('@assets/images/FC.APP_LOGO.png')}

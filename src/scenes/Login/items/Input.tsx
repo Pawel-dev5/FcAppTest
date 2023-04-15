@@ -25,12 +25,12 @@ export const Input = ({ label, errors, control, name, type, autoComplete }: Inpu
   };
 
   return (
-    <View height={130}>
+    <View height={120}>
       <Controller
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <View width="100%">
-            <Text color="GREY" fontSize="sm" width="100%" paddingBottom={2}>
+            <Text color="GREY" fontSize="sm" width="100%" paddingBottom={2} opacity={0.7}>
               {label}
             </Text>
 

@@ -3,7 +3,8 @@
     "italian": "Italian",
     "english": "English",
     "polish": "Polish",
-    "next": "Dalej"
+    "next": "Dalej",
+    "step": "Krok"
   },
   "Header": {
     "back": "Cofnij"

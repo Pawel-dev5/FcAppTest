@@ -1,9 +1,9 @@
+import { ProgressBar } from '@components/ProgressBar';
 import { LoginContextData } from '@scenes/Login/hooks/useLogin';
 import { Input } from '@scenes/Login/items';
 import globalButtonsStyles from '@theme/buttons';
 import { Button, Text, View } from 'native-base';
-import React, { useContext } from 'react';
-import { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export const Steps = () => {
@@ -60,12 +60,17 @@ export const Steps = () => {
         )}
       </View>
 
-      <View>
-        <Text>Krok:</Text>
-        <Text>
+      <View width="100%" maxWidth="100%" flexDirection="row" alignItems="flex-end" justifyContent="space-between">
+        <Text color="GREY" fontSize="sm" opacity={0.7}>
+          {t('common:step')}:
+        </Text>
+
+        <Text fontFamily="MonumentExtended-Regular" fontSize={52} lineHeight={52} color="BORDER" marginBottom={-2}>
           {currentStep}/{stepsLength}
         </Text>
       </View>
+
+      <ProgressBar currentStep={currentStep} stepsLength={stepsLength} />
 
       <Button
         style={globalButtonsStyles.filledButton}

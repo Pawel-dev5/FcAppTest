@@ -13,6 +13,7 @@ const customTheme = extendTheme({
     secondary: palette.SECONDARY,
     border: palette.BORDER,
     grey: palette.GREY,
+    purple: palette.PURPLE,
     tertiary: palette.MIDNIGHT_BLUE,
 
     pageBackground: palette.MIDNIGHT_BLUE,

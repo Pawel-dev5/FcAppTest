@@ -2,7 +2,8 @@
   "common": {
     "italian": "Italian",
     "english": "English",
-    "next": "Next"
+    "next": "Next",
+    "step": "Step"
   },
   "Header": {
     "back": "Back"
