@@ -10,9 +10,10 @@ interface LayoutWrapperInterface {
   children?: ReactNode | ReactNode[];
   startAnimation?: boolean;
   backHandler?: () => void;
+  currentStep: number;
 }
 
-export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutWrapperInterface) => {
+export const LayoutWrapper = ({ children, startAnimation, backHandler, currentStep }: LayoutWrapperInterface) => {
   const [t] = useTranslation();
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
@@ -43,14 +44,13 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
   const height = useMemo(
     () =>
       heightIndex.interpolate({
-        inputRange: [0, 1],
-        outputRange: ['53%', '85%'],
+        inputRange: [0, 1, 2],
+        outputRange: ['53%', '85%', '87%'],
       }),
     [heightIndex],
   );
 
   useEffect(() => {
-    // Keyboard.dismiss();
     Animated.parallel(
       [
         Animated.timing(scale, {
@@ -115,7 +115,6 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
         keyboardShouldPersistTaps="handled"
         style={{
           ...styles.children,
-          // height: startAnimation ? '82%' : '50%',
           height,
         }}
         contentContainerStyle={{
@@ -123,11 +122,33 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler }: LayoutW
           width: '100%',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          padding: 21,
-          paddingTop: 0,
+          justifyContent: 'flex-start',
+          overflow: 'hidden',
+          position: 'relative',
         }}>
-        {children}
+        {currentStep === 5 ? (
+          <>
+            <Image
+              alt="Sygnet Logo"
+              source={require('@assets/icons/Sygnet_Logo.png')}
+              style={styles.childBackgroundImage}
+            />
+            <View
+              paddingLeft={21}
+              paddingRight={21}
+              width="100%"
+              minWidth="100%"
+              minHeight="100%"
+              zIndex={1}
+              marginBottom={50}>
+              {children}
+            </View>
+          </>
+        ) : (
+          <View paddingLeft={21} paddingRight={21} overflow="hidden">
+            {children}
+          </View>
+        )}
       </Animated.ScrollView>
     </View>
   );
@@ -139,6 +160,13 @@ const styles = StyleSheet.create({
     height: '73.5%',
     resizeMode: 'cover',
   },
+  childBackgroundImage: {
+    width: '100%',
+    height: '87%',
+    resizeMode: 'cover',
+    position: 'absolute',
+    bottom: 0,
+  },
   children: {
     width: '100%',
     position: 'absolute',
@@ -149,5 +177,6 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
+    overflow: 'hidden',
   },
 });

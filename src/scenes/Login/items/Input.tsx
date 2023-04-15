@@ -1,4 +1,4 @@
-import { InputInterface } from '@scenes/Login/models/items';
+import { InputInterface } from '@scenes/Login/models';
 import customTheme from '@theme';
 import { Text, View, Image } from 'native-base';
 import React from 'react';

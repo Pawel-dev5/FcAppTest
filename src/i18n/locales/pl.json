@@ -43,6 +43,10 @@
     "email": "E-mail",
     "phone": "Telefon",
     "password": "Hasło (min 6 znaków, w tym cyfra)",
-    "thisField": "To pole"
+    "thisField": "To pole",
+    "chooseAccountType": "Wybierz rodzaj konta",
+    "chooseAccountTypeDescription": "Wybierz rodzaj swojego konta. W późniejszym etapie będzie możliwość zmiany lub dodania innych typów konta.",
+    "privacyPolicy": "Tworząc konto zgadzasz się na warunki",
+    "privacyPolicyTitle": "Regulaminu i Polityki Prywatności"
   }
 }

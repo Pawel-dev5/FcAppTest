@@ -8,7 +8,7 @@ const LoginWrapper = () => {
   const { currentStep, startAnimation, backHandler } = useContext(LoginContextData);
 
   return (
-    <LayoutWrapper startAnimation={startAnimation} backHandler={backHandler}>
+    <LayoutWrapper startAnimation={startAnimation} backHandler={backHandler} currentStep={currentStep}>
       <View>{currentStep === 0 ? <WelcomeScreen /> : <Steps />}</View>
     </LayoutWrapper>
   );

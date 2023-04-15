@@ -42,6 +42,10 @@
     "email": "E-mail",
     "phone": "Telefono",
     "password": "Parola d'ordine",
-    "thisField": "This field"
+    "thisField": "This field",
+    "chooseAccountType": "Wybierz rodzaj konta",
+    "chooseAccountTypeDescription": "Wybierz rodzaj swojego konta. W późniejszym etapie będzie możliwość zmiany lub dodania innych typów konta.",
+    "privacyPolicy": "Tworząc konto zgadzasz się na warunki",
+    "privacyPolicyTitle": "Regulaminu i Polityki Prywatności"
   }
 }

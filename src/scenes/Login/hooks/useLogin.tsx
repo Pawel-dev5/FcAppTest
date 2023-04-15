@@ -42,7 +42,9 @@ export const useLogin = () => {
   };
 
   const { mutate, isLoading, isError, error } = useMutation(formData =>
-    axios.post('https://api.dev.footballchallengeapp.com/swagger/auth/registration', formData),
+    axios
+      .post('https://api.dev.footballchallengeapp.com/swagger/auth/registration', formData)
+      .finally(() => setCurrentStep(currentStep + 1)),
   );
 
   const onSubmit = (data: FormData) => mutate(data);
