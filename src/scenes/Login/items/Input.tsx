@@ -9,18 +9,18 @@ import { StyleSheet, TextInput } from 'react-native';
 export const Input = ({ label, errors, control, name, type, autoComplete }: InputInterface) => {
   const [t] = useTranslation();
 
-  const inputNameHandler = () => {
+  const inputIconHandler = () => {
     switch (name) {
       case 'firstName':
-        return { errorTitle: t('Login:firstAndLastName'), imgSrc: require('@assets/icons/User.png') };
+        return require('@assets/icons/User.png');
       case 'email':
-        return { errorTitle: t('Login:email'), imgSrc: require('@assets/icons/Mail.png') };
+        return require('@assets/icons/Mail.png');
       case 'phone':
-        return { errorTitle: t('Login:phone'), imgSrc: require('@assets/icons/Phone.png') };
+        return require('@assets/icons/Phone.png');
       case 'password':
-        return { errorTitle: t('Login:password'), imgSrc: require('@assets/icons/Lock.png') };
+        return require('@assets/icons/Lock.png');
       default:
-        return { errorTitle: t('Login:thisField'), imgSrc: null };
+        return null;
     }
   };
 
@@ -42,8 +42,8 @@ export const Input = ({ label, errors, control, name, type, autoComplete }: Inpu
               borderColor={customTheme.colors.border}
               borderWidth="1px"
               borderRadius={customTheme.radius[2]}>
-              {inputNameHandler()?.imgSrc && (
-                <Image alt="Input icon" source={inputNameHandler()?.imgSrc} width={6} height={6} marginX={3} />
+              {inputIconHandler() && (
+                <Image alt="Input icon" source={inputIconHandler()} width={6} height={6} marginX={3} />
               )}
 
               <TextInput
@@ -65,7 +65,7 @@ export const Input = ({ label, errors, control, name, type, autoComplete }: Inpu
 
       {errors[name] && (
         <Text color="ALIZARIN" paddingTop={2}>
-          {inputNameHandler()?.errorTitle} {t('Login:isRequired')}
+          {t(`Login:${errors[name]?.message}`)}
         </Text>
       )}
     </View>

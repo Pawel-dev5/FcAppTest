@@ -46,6 +46,11 @@
     "chooseAccountType": "Wybierz rodzaj konta",
     "chooseAccountTypeDescription": "Wybierz rodzaj swojego konta. W późniejszym etapie będzie możliwość zmiany lub dodania innych typów konta.",
     "privacyPolicy": "Tworząc konto zgadzasz się na warunki",
-    "privacyPolicyTitle": "Regulaminu i Polityki Prywatności"
+    "privacyPolicyTitle": "Regulaminu i Polityki Prywatności",
+    "firstAndLastNameIsRequired": "First name and last name is required.",
+    "emailIsRequired": "E-mail is required.",
+    "phoneIsRequired": "Phone is required.",
+    "passwordIsRequired": "Password is required.",
+    "onlyDigits": "Digits only"
   }
 }

@@ -9,10 +9,13 @@ import * as yup from 'yup';
 
 const schema = yup
   .object({
-    firstName: yup.string().required(),
-    phone: yup.string().required(),
-    email: yup.string().required(),
-    password: yup.string().required(),
+    firstName: yup.string().required('firstAndLastNameIsRequired'),
+    phone: yup
+      .string()
+      .required('phoneIsRequired')
+      .matches(/^[0-9]+$/, 'onlyDigits'),
+    email: yup.string().email('emailBadFormat').required('emailIsRequired'),
+    password: yup.string().min(8).required('passwordIsRequired'),
   })
   .required();
 type FormData = yup.InferType<typeof schema>;
