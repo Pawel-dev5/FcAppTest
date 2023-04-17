@@ -45,7 +45,7 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
     () =>
       heightIndex.interpolate({
         inputRange: [0, 1, 2],
-        outputRange: ['53%', '85%', '87%'],
+        outputRange: ['53%', '85%', '88%'],
       }),
     [heightIndex],
   );
@@ -76,7 +76,31 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
       ],
       { stopTogether: false },
     ).start();
-  }, [startAnimation, keyboardHeight]);
+  }, [startAnimation, keyboardHeight]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    if (currentStep === 5) {
+      Animated.parallel(
+        [
+          Animated.spring(heightIndex, {
+            toValue: 2,
+            useNativeDriver: false,
+          }),
+        ],
+        { stopTogether: false },
+      ).start();
+    } else {
+      Animated.parallel(
+        [
+          Animated.spring(heightIndex, {
+            toValue: 1,
+            useNativeDriver: false,
+          }),
+        ],
+        { stopTogether: false },
+      ).start();
+    }
+  }, [currentStep]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <View flex={1} position="relative">

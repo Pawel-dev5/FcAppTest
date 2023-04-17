@@ -1,6 +1,8 @@
+import AnimatedNumbers from '@components/AnimatedNumbers';
 import { ProgressBar } from '@components/ProgressBar';
 import { LoginContextData } from '@scenes/Login/hooks/useLogin';
 import { AccountType, Input } from '@scenes/Login/items';
+import customTheme from '@theme';
 import globalButtonsStyles from '@theme/buttons';
 import { Button, Text, View } from 'native-base';
 import React, { useContext, useEffect } from 'react';
@@ -81,9 +83,20 @@ export const Steps = () => {
               {t('common:step')}:
             </Text>
 
-            <Text fontFamily="MonumentExtended-Regular" fontSize={52} lineHeight={52} color="BORDER" marginBottom={-2}>
-              {currentStep}/{stepsLength}
-            </Text>
+            <View alignItems="center" flexDirection="row" marginBottom={-2}>
+              <AnimatedNumbers
+                animateToNumber={currentStep}
+                fontStyle={{
+                  fontFamily: 'MonumentExtended-Regular',
+                  fontSize: 52,
+                  lineHeight: 52,
+                  color: customTheme.colors.border,
+                }}
+              />
+              <Text fontFamily="MonumentExtended-Regular" fontSize={52} lineHeight={52} color="BORDER">
+                /{stepsLength}
+              </Text>
+            </View>
           </View>
 
           <ProgressBar currentStep={currentStep} stepsLength={stepsLength} />
