@@ -93,7 +93,7 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
       Animated.parallel(
         [
           Animated.spring(heightIndex, {
-            toValue: 1,
+            toValue: startAnimation || keyboardHeight ? 1 : 0,
             useNativeDriver: false,
           }),
         ],
