@@ -57,7 +57,7 @@
     "react-native-flipper": "0.159.0",
     "react-native-gesture-handler": "2.5.0",
     "react-native-indicators": "^0.17.0",
-    "react-native-localize": "2.2.3",
+    "react-native-localize": "2.2.6",
     "react-native-reanimated": "^3.0.2",
     "react-native-safe-area-context": "4.3.1",
     "react-native-screens": "^3.13.1",
