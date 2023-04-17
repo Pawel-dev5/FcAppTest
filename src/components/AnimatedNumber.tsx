@@ -22,11 +22,10 @@ interface AnimatedNumbersInterface {
   animationDuration?: number;
 }
 
-const AnimatedNumber = ({ animateToNumber, fontStyle, animationDuration }: AnimatedNumbersInterface) => {
+export const AnimatedNumber = ({ animateToNumber, fontStyle, animationDuration }: AnimatedNumbersInterface) => {
   const prevNumber = usePrevious(animateToNumber);
   const animateToNumberString = String(Math.abs(animateToNumber));
   const prevNumberString = String(Math.abs(prevNumber));
-
   const animateToNumbersArr = Array.from(animateToNumberString, Number);
   const prevNumberersArr = Array.from(prevNumberString, Number);
 
@@ -42,6 +41,8 @@ const AnimatedNumber = ({ animateToNumber, fontStyle, animationDuration }: Anima
   const setButtonLayout = (e: NativeSyntheticEvent<{ layout: { height: number } }>) =>
     setNumberHeight(e.nativeEvent.layout.height);
 
+  const getTranslateY = (index: number) => animations[index];
+
   useEffect(() => {
     animations.map((animation, index) => {
       if (typeof animateToNumbersArr[index] !== 'number') {
@@ -56,8 +57,6 @@ const AnimatedNumber = ({ animateToNumber, fontStyle, animationDuration }: Anima
       }).start();
     });
   }, [animateToNumber, numberHeight]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  const getTranslateY = (index: number) => animations[index];
 
   return (
     <>
@@ -102,5 +101,3 @@ const AnimatedNumber = ({ animateToNumber, fontStyle, animationDuration }: Anima
     </>
   );
 };
-
-export default AnimatedNumber;

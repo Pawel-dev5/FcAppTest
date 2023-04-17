@@ -1,8 +1,9 @@
 import { ContextProviderProps } from '@config/models';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { GlobalStateContextData } from '@hooks/globalState';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
-import React, { createContext, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 
@@ -17,6 +18,8 @@ const schema = yup
 type FormData = yup.InferType<typeof schema>;
 
 export const useLogin = () => {
+  const { setIsAuth } = useContext(GlobalStateContextData);
+
   const {
     control,
     handleSubmit,
@@ -44,6 +47,7 @@ export const useLogin = () => {
   const { mutate, isLoading, isError, error } = useMutation(formData =>
     axios
       .post('https://api.dev.footballchallengeapp.com/swagger/auth/registration', formData)
+      .then(() => setIsAuth(true))
       .finally(() => setCurrentStep(currentStep + 1)),
   );
 

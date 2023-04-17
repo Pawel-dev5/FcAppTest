@@ -11,7 +11,7 @@ export const ProgressBar = ({ currentStep, stepsLength }: { currentStep: number;
       toValue: (width * currentStep) / stepsLength,
       useNativeDriver: false,
     }).start();
-  }, [currentStep, width]);
+  }, [currentStep, width]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <View

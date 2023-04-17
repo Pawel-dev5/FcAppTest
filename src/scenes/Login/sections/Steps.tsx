@@ -1,4 +1,4 @@
-import AnimatedNumbers from '@components/AnimatedNumbers';
+import { AnimatedNumber } from '@components/AnimatedNumber';
 import { ProgressBar } from '@components/ProgressBar';
 import { LoginContextData } from '@scenes/Login/hooks/useLogin';
 import { AccountType, Input } from '@scenes/Login/items';
@@ -84,7 +84,7 @@ export const Steps = () => {
             </Text>
 
             <View alignItems="center" flexDirection="row" marginBottom={-2}>
-              <AnimatedNumbers
+              <AnimatedNumber
                 animateToNumber={currentStep}
                 fontStyle={{
                   fontFamily: 'MonumentExtended-Regular',

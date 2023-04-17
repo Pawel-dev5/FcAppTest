@@ -1,38 +1,16 @@
-import customTheme from '@theme';
+import { layoutStyles } from '@components/LayoutWrapper/Styles';
+import { LayoutWrapperInterface } from '@components/LayoutWrapper/models';
 import { Text, View, Image, Icon, Button } from 'native-base';
-import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, ImageBackground, Animated, Easing, Keyboard } from 'react-native';
+import { ImageBackground, Animated, Easing, Keyboard } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-
-interface LayoutWrapperInterface {
-  children?: ReactNode | ReactNode[];
-  startAnimation?: boolean;
-  backHandler?: () => void;
-  currentStep: number;
-}
 
 export const LayoutWrapper = ({ children, startAnimation, backHandler, currentStep }: LayoutWrapperInterface) => {
   const [t] = useTranslation();
 
   const [keyboardHeight, setKeyboardHeight] = useState(0);
-
-  useEffect(() => {
-    Keyboard.addListener('keyboardDidShow', event => {
-      const { height: keyboardheight } = event.endCoordinates;
-      setKeyboardHeight(keyboardheight);
-    });
-
-    Keyboard.addListener('keyboardDidHide', () => {
-      setKeyboardHeight(0);
-    });
-
-    return () => {
-      Keyboard.removeAllListeners('keyboardDidShow');
-      Keyboard.removeAllListeners('keyboardDidHide');
-    };
-  }, []);
 
   const arrowOpacity = useRef(new Animated.Value(0)).current;
   const subTitleOpacity = useRef(new Animated.Value(1)).current;
@@ -40,7 +18,6 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
   const baseAnimation = { duration: 500, useNativeDriver: true, easing: Easing.ease };
   const scale = useRef(new Animated.Value(1)).current;
   const heightIndex = useRef(new Animated.Value(0)).current;
-
   const height = useMemo(
     () =>
       heightIndex.interpolate({
@@ -102,9 +79,25 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
     }
   }, [currentStep]); // eslint-disable-line react-hooks/exhaustive-deps
 
+  useEffect(() => {
+    Keyboard.addListener('keyboardDidShow', event => {
+      const { height: keyboardheight } = event.endCoordinates;
+      setKeyboardHeight(keyboardheight);
+    });
+
+    Keyboard.addListener('keyboardDidHide', () => {
+      setKeyboardHeight(0);
+    });
+
+    return () => {
+      Keyboard.removeAllListeners('keyboardDidShow');
+      Keyboard.removeAllListeners('keyboardDidHide');
+    };
+  }, []);
+
   return (
     <View flex={1} position="relative">
-      <ImageBackground source={require('@assets/images/Login_Background.jpg')} style={styles.backgroundImage}>
+      <ImageBackground source={require('@assets/images/Login_Background.jpg')} style={layoutStyles.backgroundImage}>
         <View alignItems="center" paddingTop={35}>
           <View alignItems="center" flexDirection="row">
             <Animated.View style={{ opacity: arrowOpacity }}>
@@ -138,24 +131,16 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
       <Animated.ScrollView
         keyboardShouldPersistTaps="handled"
         style={{
-          ...styles.children,
+          ...layoutStyles.children,
           height,
         }}
-        contentContainerStyle={{
-          minWidth: '100%',
-          width: '100%',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          overflow: 'hidden',
-          position: 'relative',
-        }}>
+        contentContainerStyle={layoutStyles.contentContainerStyle}>
         {currentStep === 5 ? (
           <>
             <Image
               alt="Sygnet Logo"
               source={require('@assets/icons/Sygnet_Logo.png')}
-              style={styles.childBackgroundImage}
+              style={layoutStyles.childBackgroundImage}
             />
             <View
               paddingLeft={21}
@@ -177,30 +162,3 @@ export const LayoutWrapper = ({ children, startAnimation, backHandler, currentSt
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  backgroundImage: {
-    maxWidth: '100%',
-    height: '73.5%',
-    resizeMode: 'cover',
-  },
-  childBackgroundImage: {
-    width: '100%',
-    height: '87%',
-    resizeMode: 'cover',
-    position: 'absolute',
-    bottom: 0,
-  },
-  children: {
-    width: '100%',
-    position: 'absolute',
-    bottom: 0,
-    backgroundColor: customTheme.colors.primary,
-    borderColor: customTheme.colors.border,
-    borderWidth: 1,
-    borderBottomWidth: 1,
-    borderTopLeftRadius: 32,
-    borderTopRightRadius: 32,
-    overflow: 'hidden',
-  },
-});
